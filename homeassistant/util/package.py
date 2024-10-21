@@ -166,7 +166,7 @@ async def async_get_user_site(deps_dir: str) -> str:
     """
     env = os.environ.copy()
     env["PYTHONUSERBASE"] = os.path.abspath(deps_dir)
-    args = [sys.executable, "-m", "site", "--user-site"]
+    args = [sys.executable, "-m", "site", "--user-site", "--user-base"]
     process = await asyncio.create_subprocess_exec(
         *args,
         stdin=asyncio.subprocess.PIPE,
